@@ -21,5 +21,19 @@
 </template>
 
 <script>
-
+export default {
+  props: {
+    todo: Object,
+  },
+  methods: {
+    deletetodo() {
+      if (confirm("حذف شود؟")) {
+        this.$emit("delete", this.todo.id);
+      }
+    },
+    statuschang() {
+      this.$emit("statuschang", this.todo.id, !this.todo.iscompilte);
+    },
+  },
+};
 </script>
