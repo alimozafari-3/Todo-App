@@ -90,7 +90,22 @@ export default {
       };
       this.todos.push(todo);
     },
-   
+    deletetodo(id) {
+      this.todos = this.todos.filter((f) => f.id !== id);
+    },
+    statuschek(id, iscom) {
+      console.log(id, iscom);
+      var newtodo = [...this.todos];
+      var select = newtodo.find((f) => f.id === id);
+      select.iscompilte = iscom;
+    },
+    totaldelete() {
+      this.todos = this.todos.filter((f) => f.iscompilte === false);
+    },
+    changtab(tab) {
+      this.active = tab;
+    },
+
   },
 };
 </script>
